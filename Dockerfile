@@ -5,7 +5,7 @@ RUN apt-get update -y && \
     rm -rf /var/lib/apt/lists/* && \
     gem install scss_lint && \
     ln -s /usr/bin/nodejs /usr/bin/node && \
-    npm install --global npm@4 bower gulp-cli && \
+    npm install --global npm@5 bower gulp-cli && \
     npm install --no-save phantomjs-prebuilt && \
     mv /node_modules/phantomjs-prebuilt /usr/local/lib/node_modules/phantomjs-prebuilt && \
     ln -s /usr/local/lib/node_modules/phantomjs-prebuilt/bin/phantomjs /usr/local/bin/phantomjs && \
