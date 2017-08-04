@@ -20,6 +20,11 @@ COPY run.sh /
 COPY run-as-owner.sh /
 COPY npm-login.sh /
 
+# package-lock.json sorting is not locale-agnostic (see https://github.com/npm/npm/pull/17844)
+# Until npm 5.4.0 is released we need that to get
+# same lockfiles in our dev environment and in the CI environment
+ENV LANG="en_US.UTF-8"
+
 VOLUME /tuleap
 
 WORKDIR /tuleap
