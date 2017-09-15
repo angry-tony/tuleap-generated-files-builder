@@ -1,10 +1,10 @@
 FROM ubuntu:16.04
 
-RUN apt-get update -y && \
-    apt-get install -y nodejs npm php ruby-sass git cpio gettext gosu expect && \
+RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - && \
+    apt-get update -y && \
+    apt-get install -y php ruby-sass git cpio gettext gosu expect && \
     rm -rf /var/lib/apt/lists/* && \
     gem install scss_lint && \
-    ln -s /usr/bin/nodejs /usr/bin/node && \
     npm install --global npm@5.4.2 bower gulp-cli && \
     npm install --no-save phantomjs-prebuilt && \
     mv /node_modules/phantomjs-prebuilt /usr/local/lib/node_modules/phantomjs-prebuilt && \
