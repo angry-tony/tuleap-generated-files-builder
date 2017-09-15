@@ -2,7 +2,9 @@ FROM ubuntu:16.04
 
 RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - && \
     apt-get update -y && \
-    apt-get install -y nodejs npm php ruby-sass git cpio gettext gosu expect && \
+    apt-get install -y php ruby-sass git cpio gettext gosu expect curl && \
+    curl -sL https://deb.nodesource.com/setup_6.x | bash - && \
+    apt-get install -y nodejs npm && \
     rm -rf /var/lib/apt/lists/* && \
     gem install scss_lint && \
     npm install --global npm@5.4.2 bower gulp-cli && \
