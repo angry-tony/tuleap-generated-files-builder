@@ -5,7 +5,7 @@ RUN apt-get update -y && \
     rm -rf /var/lib/apt/lists/* && \
     gem install scss_lint && \
     ln -s /usr/bin/nodejs /usr/bin/node && \
-    npm install --global npm@5 bower gulp-cli && \
+    npm install --global npm@5.4.2 bower gulp-cli && \
     npm install --no-save phantomjs-prebuilt && \
     mv /node_modules/phantomjs-prebuilt /usr/local/lib/node_modules/phantomjs-prebuilt && \
     ln -s /usr/local/lib/node_modules/phantomjs-prebuilt/bin/phantomjs /usr/local/bin/phantomjs && \
@@ -19,11 +19,6 @@ RUN apt-get update -y && \
 COPY run.sh /
 COPY run-as-owner.sh /
 COPY npm-login.sh /
-
-# package-lock.json sorting is not locale-agnostic (see https://github.com/npm/npm/pull/17844)
-# Until npm 5.4.0 is released we need that to get
-# same lockfiles in our dev environment and in the CI environment
-ENV LANG="en_US.UTF-8"
 
 VOLUME /tuleap
 
