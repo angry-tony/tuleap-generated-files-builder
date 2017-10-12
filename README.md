@@ -11,7 +11,7 @@ $ docker build -t tuleap-generated-files-builder .
 ## Usage
 
 ```shell
-$ docker run --rm -v /path/to/tuleap/sources:/tuleap --tmpfs /tmp/tuleap_build:rw,noexec,nosuid --read-only tuleap-generated-files-builder
+$ docker run --rm -v /path/to/tuleap/sources:/tuleap -v /path/to/put/the/generated/sources/tarball:/output --tmpfs /tmp/tuleap_build:rw,noexec,nosuid --read-only tuleap-generated-files-builder
 ```
 
 ## Choose your NPM registry and NPM login

@@ -18,7 +18,7 @@ COPY run.sh /
 COPY run-as-owner.sh /
 COPY npm-login.sh /
 
-VOLUME /tuleap
+VOLUME ["/tuleap", "/output"]
 
 WORKDIR /tuleap
 
