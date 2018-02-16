@@ -12,6 +12,9 @@ build_generated_files() {
     # Set the HOME environnement variable is crappy but it seems that is the
     # only way to prevent npm and node-gyp to put their files everywhere
     TMP="$TULEAP_BUILD_TMP_FOLDER" HOME="$TULEAP_BUILD_TMP_FOLDER" OS='rhel6' make -C "$(pwd)/tools/rpm" tarball
+    if [ "$1" = "dev" ]; then
+	make composer
+    fi
 }
 
 configure_npm_registry(){
@@ -29,5 +32,5 @@ copy_tarball_to_output_dir() {
 
 create_tuleap_build_folders
 configure_npm_registry
-build_generated_files
+build_generated_files $@
 copy_tarball_to_output_dir

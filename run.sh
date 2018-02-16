@@ -8,4 +8,4 @@ get_user_group_id_tuleap_volume() {
 
 chown "$(get_user_group_id_tuleap_volume)" /output
 
-gosu "$(get_user_group_id_tuleap_volume)" "/run-as-owner.sh"
+gosu "$(get_user_group_id_tuleap_volume)" "/run-as-owner.sh" $@
