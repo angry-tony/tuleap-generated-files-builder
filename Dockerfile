@@ -1,7 +1,7 @@
 FROM ubuntu:16.04
 
 RUN apt-get update -y && \
-    apt-get install -y php php-dom git cpio gettext gosu expect bzip2 make g++ curl && \
+    apt-get install -y php php-dom php-zip git cpio gettext gosu expect bzip2 make g++ curl && \
     curl -sL https://deb.nodesource.com/setup_6.x | bash - && \
     apt-get install -y nodejs && \
     rm -rf /var/lib/apt/lists/* && \
