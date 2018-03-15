@@ -14,6 +14,22 @@ build_generated_files() {
     TMP="$TULEAP_BUILD_TMP_FOLDER" HOME="$TULEAP_BUILD_TMP_FOLDER" OS='rhel6' make -C "$(pwd)/tools/rpm" tarball
     if [ "$1" = "dev" ]; then
         make composer generate-po
+
+        tuleap_path="$(pwd)"
+
+        if [ -d "$tuleap_path/plugins/testmanagement/www/scripts/angular/" ]; then
+            echo "TTM plugin found, installing npm modules"
+            cd $tuleap_path/plugins/testmanagement/www/scripts/angular/ &&\
+            npm install
+            cd "$tuleap_path"
+        fi
+
+        if [ -d "$tuleap_path/plugins/timetracking/www/scripts/" ]; then
+            echo "Timetracking plugin found, installing npm modules"
+            cd $tuleap_path/plugins/testmanagement/www/scripts/angular/ &&\
+            npm install
+            cd "$tuleap_path"
+        fi
     fi
 }
 
