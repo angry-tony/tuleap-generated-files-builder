@@ -23,13 +23,6 @@ build_generated_files() {
             HOME="$TULEAP_BUILD_TMP_FOLDER" npm install
             cd "$tuleap_path"
         fi
-
-        if [ -d "$tuleap_path/plugins/timetracking/www/scripts/" ]; then
-            echo "Timetracking plugin found, installing npm modules"
-            cd $tuleap_path/plugins/testmanagement/www/scripts/angular/ &&\
-            HOME="$TULEAP_BUILD_TMP_FOLDER" npm install
-            cd "$tuleap_path"
-        fi
     fi
 }
 
