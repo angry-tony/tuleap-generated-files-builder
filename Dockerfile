@@ -1,9 +1,8 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 RUN apt-get update -y && \
-    apt-get install -y php php-dom php-zip git cpio gettext gosu expect bzip2 make g++ curl && \
-    curl -sL https://deb.nodesource.com/setup_6.x | bash - && \
-    apt-get install -y nodejs && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y php php-dom php-zip git cpio gettext gosu expect bzip2 make g++ curl nodejs npm && \
+    apt-get clean -y && \
     rm -rf /var/lib/apt/lists/* && \
     npm install --global npm@6.0.1 bower gulp-cli && \
     php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
