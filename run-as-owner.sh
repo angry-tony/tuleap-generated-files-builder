@@ -13,7 +13,7 @@ build_generated_files() {
     # only way to prevent npm and node-gyp to put their files everywhere
     TMP="$TULEAP_BUILD_TMP_FOLDER" HOME="$TULEAP_BUILD_TMP_FOLDER" OS='rhel6' make -C "$(pwd)/tools/rpm" tarball
     if [ "$1" = "dev" ]; then
-        make composer generate-po
+        TMP="$TULEAP_BUILD_TMP_FOLDER" HOME="$TULEAP_BUILD_TMP_FOLDER" make composer generate-po
 
         tuleap_path="$(pwd)"
 
