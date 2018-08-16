@@ -1,16 +1,20 @@
-node('docker') {
-    stage('Checkout sources') {
-        checkout scm
+def buildAndPublishImage() {
+    def image = docker.build('tuleap-generated-files-builder')
+    docker.withRegistry('https://nexus.enalean.com:22000', 'ci-write') {
+        image.push()
+    }
+}
+
+pipeline {
+    agent {
+        label 'docker'
     }
 
-    def image
-    stage('Build image') {
-        image = docker.build('tuleap-generated-files-builder', '.')
-    }
-
-    stage('Publish image') {
-        docker.withRegistry('https://nexus.enalean.com:22000', 'ci-write') {
-            image.push()
+    stages {
+        stage('Build and publish images') {
+            steps {
+                buildAndPublishImage()
+            }
         }
     }
 }
