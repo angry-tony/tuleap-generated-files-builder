@@ -1,7 +1,8 @@
 FROM ubuntu:18.04
 
 RUN apt-get update -y && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y php php-dom php-zip unzip git cpio gettext gosu expect bzip2 make g++ curl nodejs npm && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+        ca-certificates php-cli php-dom php-zip unzip git cpio gettext gosu expect bzip2 make curl nodejs npm && \
     apt-get clean -y && \
     rm -rf /var/lib/apt/lists/* && \
     npm install --global npm@6.8.0
