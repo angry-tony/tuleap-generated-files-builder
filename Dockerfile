@@ -8,7 +8,7 @@ RUN apt-get update -y && \
     npm install --global npm@6.13.7 && \
     rm /usr/bin/npx /usr/bin/npm
 
-COPY --from=composer:1.9 /usr/bin/composer /usr/bin/composer
+COPY --from=composer:1.10 /usr/bin/composer /usr/bin/composer
 
 COPY run.sh /
 COPY run-as-owner.sh /
