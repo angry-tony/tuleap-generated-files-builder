@@ -17,6 +17,12 @@ build_generated_files() {
     fi
 }
 
+configure_composer_github_auth(){
+    if [ ! -z "$COMPOSER_GITHUB_AUTH" ]; then
+        HOME="$TULEAP_BUILD_TMP_FOLDER" TMPDIR="$TULEAP_BUILD_TMP_FOLDER" composer config --global --auth github-oauth.github.com "$COMPOSER_GITHUB_AUTH"
+    fi
+}
+
 configure_npm_registry(){
     if [ ! -z "$NPM_REGISTRY" ]; then
         HOME="$TULEAP_BUILD_TMP_FOLDER" npm config set registry "$NPM_REGISTRY"
@@ -31,6 +37,7 @@ copy_tarball_to_output_dir() {
 }
 
 create_tuleap_build_folders
+configure_composer_github_auth
 configure_npm_registry
 build_generated_files $@
 copy_tarball_to_output_dir

@@ -22,3 +22,8 @@ the following environment variables:
   * ``NPM_USER``: user name used to log in into the registry
   * ``NPM_PASSWORD``: password of the user
   * ``NPM_EMAIL``: public mail that will be used if you publish a package
+
+## Use a GitHub token for Composer
+
+You can set a GitHub token to use with Composer using the following environnement variables:
+  * ``COMPOSER_GITHUB_AUTH``: GitHub token with the repo scope
