@@ -5,7 +5,7 @@ RUN apt-get update -y && \
         ca-certificates php-cli php-dom php-zip unzip git cpio gettext gosu expect bzip2 make curl nodejs npm xsltproc && \
     apt-get clean -y && \
     rm -rf /var/lib/apt/lists/* && \
-    npm install --global npm@6.14.3 && \
+    npm install --global npm@6.14.4 && \
     rm /usr/bin/npx /usr/bin/npm
 
 COPY --from=composer:1.10 /usr/bin/composer /usr/bin/composer
