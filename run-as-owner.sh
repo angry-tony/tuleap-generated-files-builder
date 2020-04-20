@@ -38,6 +38,6 @@ copy_tarball_to_output_dir() {
 
 create_tuleap_build_folders
 configure_composer_github_auth
-configure_npm_registry
+#configure_npm_registry
 build_generated_files $@
 copy_tarball_to_output_dir
